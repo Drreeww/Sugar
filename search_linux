@@ -1,0 +1,12 @@
+
+"search file"
+1. find . -name "keyword" -print 
+2. find . -name "keyword" -type f
+"search directory"
+3.find . -name "keyword" -type d
+4.locate -b "\keyword" 绝对匹配
+"view file"
+1.cat file
+2.stat file
+"serch character string"
+1.grep -nr string
