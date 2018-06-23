@@ -1,0 +1,27 @@
+linux下大括号扩展参数
+
+Bash 大括号扩展，大括号包围的，用逗号隔开的参数会扩展为独立的多个参数。
+
+touch sources.{list, list.bak}
+
+会扩展为touch sources.list sources.list.bak 
+
+如果什么都不写就可以表示空白：
+
+touch sources.list{,.bak}
+
+同样扩展为touch sources.list sources.list.bak
+
+处理多个有规律文件名
+
+echo /var/log/messages.{1..3}
+
+/var/log/messages.1 /var/log/messages.2 /var/log/messages.3
+
+echo file{a..d}{1..3}.txt
+
+filea1.txt filea2.txt filea3.txt fileb1.txt fileb2.txt fileb3.txt filec1.txt filec2.txt filec3.txt filed1.txt filed2.txt filed3.txt
+
+花括号扩展可以嵌套。扩展字符串的结果没有排序；而是保留了从左到右的顺序。 例如， a{d,c,b}e 扩展为 `ade ace abe'。
+
+chown root  /usr/{ucb/{ex,edit},lib/{ex?.?*,how_ex}} 
